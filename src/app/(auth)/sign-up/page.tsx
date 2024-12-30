@@ -35,7 +35,6 @@ const SignUp = () => {
       } else {
         toast.error(err?.message || 'Unknown error occured.Try again later');
       }
-      console.log(error);
     }
   };
   return (

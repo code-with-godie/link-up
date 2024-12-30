@@ -183,16 +183,16 @@ class AuthService {
         );
         return true;
       } else {
-        return false;
+        throw new Error('Accoutn was not created.Try Again Later');
       }
     } catch (error) {
       console.log(error);
       // Narrowing down `error` to something that has a message
       if (error instanceof Error) {
         console.log(error.message);
-        throw new Error(`Failed to get new arrivals: ${error.message}`);
+        throw error;
       } else {
-        throw new Error('Failed to get new arrivals due to an unknown error');
+        throw new Error('Failed to get sign up due to an unknown error');
       }
     }
   }
