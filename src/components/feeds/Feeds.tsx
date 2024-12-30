@@ -3,12 +3,20 @@ import PostList from '../postList/PostList';
 import { appwriteService } from '@/appWrite/appwriteService';
 import Image from 'next/image';
 import { Post } from '@/typings/typing';
-const Feeds = async ({ userID, type }: { userID?: string; type?: string }) => {
+const Feeds = async ({
+  userID,
+  type,
+  saved,
+}: {
+  userID?: string;
+  type?: string;
+  saved?: string[] | undefined;
+}) => {
   let feeds: Post[] = [];
   if (type === 'videos') {
     feeds = await appwriteService.getVideos();
   } else if (type === 'saved') {
-    feeds = await appwriteService.getSaved();
+    feeds = await appwriteService.getSaved(saved);
   } else if (type === 'usersPosts' && userID) {
     feeds = await appwriteService.getUserPost(userID);
   } else {

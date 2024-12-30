@@ -9,7 +9,7 @@ const SavedPosts = () => {
   return (
     <div className='flex-1 bg-white border-l-2 border-gray-100 p-2'>
       <Feeds
-        saved={user?.$id}
+        saved={user?.saved}
         type='saved'
       />
     </div>

@@ -360,13 +360,9 @@ class AppWriteService {
       }
     }
   }
-  async getSaved() {
+  async getSaved(saved?: string[] | undefined) {
     try {
-      const userRes = await this.getUser();
-      if (!userRes) return [];
-      const user = userFormatter(userRes);
-      if (!user) return [];
-      const saved = user.saved || [];
+      if (!saved) return [];
       const res = await this.database.listDocuments(
         appwriteConfig.appWriteDatabase,
         appwriteConfig.appWritePostsCollectionID,
