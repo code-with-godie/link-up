@@ -61,12 +61,12 @@ const Followings = () => {
           <div key={index}>
             <div className=' flex flex-col gap-1 items-center'>
               <PostAvatar
-                username={item.username}
-                profilePic={item.profilePic}
-                userID={item.$id}
+                username={item?.username}
+                profilePic={item?.profilePic}
+                userID={item?.$id}
               />
               <p className=' text-sm'>
-                {item.username.length > 6
+                {item?.username.length > 6
                   ? `${item.username.substring(0, 5)}...`
                   : item.username}
               </p>

@@ -53,6 +53,8 @@ export const AppContextProvider = ({
       const session = await authService.getUser();
       if (session) {
         const newUser = userFormatter(session);
+        console.log('found user', newUser);
+
         setUser(newUser);
       }
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
